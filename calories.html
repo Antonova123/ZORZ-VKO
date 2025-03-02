@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор калорий</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Калькулятор калорий</h1>
+        <p>Введите данные, чтобы рассчитать вашу дневную норму калорий.</p>
+    </header>
+
+    <section class="section">
+        <form id="calorie-form">
+            <label for="weight">Вес (кг):</label>
+            <input type="number" id="weight" required>
+            <label for="height">Рост (см):</label>
+            <input type="number" id="height" required>
+            <label for="age">Возраст (лет):</label>
+            <input type="number" id="age" required>
+            <label for="activity">Уровень активности:</label>
+            <select id="activity">
+                <option value="1.2">Минимальная</option>
+                <option value="1.375">Легкая</option>
+                <option value="1.55">Средняя</option>
+                <option value="1.725">Высокая</option>
+                <option value="1.9">Экстремальная</option>
+            </select>
+            <button type="button" onclick="calculateCalories()">Рассчитать</button>
+        </form>
+        <p id="result"></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
