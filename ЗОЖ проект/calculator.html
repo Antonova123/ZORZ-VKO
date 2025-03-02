@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор калорий</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Калькулятор калорий</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="calories.html">Калькулятор калорий</a></li>
+                <li><a href="nutrition.html">Здоровое питание</a></li>
+                <li><a href="challenges.html">Спортивные челленджи</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="calculator">
+        <h2>Рассчитайте свою норму калорий</h2>
+        <form id="calorie-form">
+            <label for="weight">Вес (кг):</label>
+            <input type="number" id="weight" required>
+            
+            <label for="height">Рост (см):</label>
+            <input type="number" id="height" required>
+            
+            <label for="age">Возраст:</label>
+            <input type="number" id="age" required>
+            
+            <label for="gender">Пол:</label>
+            <select id="gender" required>
+                <option value="male">Мужчина</option>
+                <option value="female">Женщина</option>
+            </select>
+
+            <button type="button" onclick="calculateCalories()">Рассчитать</button>
+        </form>
+        
+        <p id="result"></p>
+    </section>
+
+    <script>
+        function calculateCalories() {
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            let bmr;
+
+            if (gender === 'male') {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+            } else {
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+            }
+
+            document.getElementById('result').innerText = `Ваша суточная норма калорий: ${Math.round(bmr)} ккал.`;
+        }
+    </script>
+</body>
+</html>
